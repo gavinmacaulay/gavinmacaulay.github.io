@@ -1,0 +1,16 @@
+language: ruby
+before_install:
+  - gem install asciidoctor
+  - gem install asciidoctor-bibtex
+  - gem install asciidoctor-mathematical
+script:
+  - asciidoctor -r asciidoctor-bibtex docs/crr431.adoc
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  keep_history: true
+  on:
+    branch: master
+	
